@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test', function () {
-   return 'easy)';
-});
+Route::get('test',
+    [
+        \App\Http\Controllers\TestController::class, 'testMigration'
+    ]
+);
