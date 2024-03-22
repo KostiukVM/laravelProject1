@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->index('name');
+            $table->string('name')->index();
             $table->string('position');
-
+            $table->timestamps();
         });
     }
 

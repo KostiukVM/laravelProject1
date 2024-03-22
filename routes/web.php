@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ZooController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,18 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('animals');
-});
 
-Route::get('animalFood',
-    [TestController::class, 'showAnimalsFood' ]
-)->name('animals.food');
 
-Route::get('animalEmployee',
-    [TestController::class, 'showAnimalsEmployee' ]
-)->name('animals.employee');
+Route::get('/', [ZooController::class, 'showAnimals'])->name('animals');
 
-Route::get('animals/{animal}',
-    [TestController::class, 'showAnimalData' ]
-)->name('animals.data');
+Route::get('/food', [ZooController::class, 'showFood'])->name('food');
+
+Route::get('/employees', [ZooController::class, 'showEmployees'])->name('employees');
+
+Route::get('/animals/{animal}', [ZooController::class, 'showAnimalData'])->name('animals.data');
+
+Route::get('/animalFood', [ZooController::class, 'showAnimalsFood'])->name('animals.food');
+
+Route::get('/animalEmployee', [ZooController::class, 'showAnimalsEmployee'])->name('animals.employee');

@@ -9,34 +9,42 @@
                 Name
             </div>
             <div class="col">
-                specie
+                Species
             </div>
             <div class="col">
-                age
+                Age
+            </div>
+            <div class="col">
+                Details
+            </div>
+            <div class="col">
+                Food
+            </div>
+            <div class="col">
+                Employee
             </div>
         </div>
-        @foreach($animalList as $animal)
+        @foreach($animals as $animal)
             <div class="row">
                 <div class="col">
-                    {{$animal->name}}
+                    {{ $animal->name }}
                 </div>
                 <div class="col">
-                    {{$animal->specie}}
+                    {{ $animal->species }}
                 </div>
                 <div class="col">
-                    {{$animal->age}}
+                    {{ $animal->age }}
                 </div>
                 <div class="col">
-                    <a href="/{{route('animals.data', ['animal' =>$animal])}}">Id</a>
+                    <a href="{{ route('animals.data', ['animal' => $animal]) }}">Details</a>
                 </div>
                 <div class="col">
-                    <a href="/{{route('animals.food', ['animalsFood' =>$food])}}">Food</a>
+                    <a href="{{ route('animals.food', ['animalFood' => $animal->food]) }}">Food</a>
                 </div>
                 <div class="col">
-                    <a href="/{{route('animals.employee', ['animalsEmployee' =>$employee])}}">Employee</a>
+                    <a href="{{ route('animals.employee', ['animalEmployee' => $animal->employee]) }}">Employee</a>
                 </div>
             </div>
-
         @endforeach
     </div>
 @endsection

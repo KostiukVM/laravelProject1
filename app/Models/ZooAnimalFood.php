@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ZooAnimalFood extends Model
 {
-    protected $table = "AnimalsFood";
+    protected $table = "animal_food";
+
     public function animalFood()
     {
-        return $this->hasMany( ZooAnimalFood::class);
+        return $this->hasMany(ZooAnimalFood::class);
     }
 }
