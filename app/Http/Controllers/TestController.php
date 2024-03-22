@@ -8,11 +8,17 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function testMigration(Request $request)
+    public function showAnimals(Request $request)
     {
-       $zoo = ZooAnimal::all();
-       dd($zoo->employee);
-       return 'yes';
+       $animals = ZooAnimal::all();
+
+       return view('animals', ['animalList' => $animals]);
+    }
+    public function showAnimalData(Request $request, ZooAnimal $animal)
+    {
+
+        $zooAnimals = $animal->animalId;
+        dd($zooAnimals->toArray());
     }
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('animals');
 });
 
-Route::get('test',
-    [
-        \App\Http\Controllers\TestController::class, 'testMigration'
-    ]
-);
+Route::get('animalFood',
+    [TestController::class, 'showAnimalsFood' ]
+)->name('animals.food');
+
+Route::get('animalEmployee',
+    [TestController::class, 'showAnimalsEmployee' ]
+)->name('animals.employee');
+
+Route::get('animals/{animal}',
+    [TestController::class, 'showAnimalData' ]
+)->name('animals.data');
